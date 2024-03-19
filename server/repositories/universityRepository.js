@@ -11,5 +11,9 @@ const createUniversity = async (uniName, uniLocation, logo, rankNum) => {
   });
 };
 
+const getSpecificUniversity = async () => {
+    
+}
+
 const universityRepository = { getAllUnivesities, createUniversity };
 export default universityRepository;
