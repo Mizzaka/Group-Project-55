@@ -15,7 +15,37 @@ datasource db {
 }
 
 model Universities {
-  id Int @id @default(autoincrement())
+  id              Int         @id @default(autoincrement())
+  uniName         String      @unique
+  uniLocation     String
+  offeredAcademia Academics[]
+  logo            String
+  rankNum         Int
+}
+
+model AcedemicsField {
+  id        Int         @id @default(autoincrement())
+  field     String
+  academics Academics[]
+}
+
+model AcademicQualificationType {
+  id        Int         @id @default(autoincrement())
+  type      String
+  academics Academics[]
+}
+
+model Academics {
+  id                        Int                       @id @default(autoincrement())
+  title                     String                    @unique
+  duration                  String
+  academicQualificationType AcademicQualificationType @relation(fields: [acaId], references: [id])
+  acaId                     Int
+  description               String
+  university                Universities              @relation(fields: [uniId], references: [id])
+  uniId                     Int
+  academicField             AcedemicsField            @relation(fields: [acaFId], references: [id])
+  acaFId                    Int
 }
 
 model Post {

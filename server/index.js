@@ -5,6 +5,7 @@ import cors from "cors";
 
 // Custom Routing
 import { assignmentRoutes } from "./routes/assignmentRouter.js";
+import { universityRouter } from "./routes/universityRoutes.js";
 
 // Instances
 const app = express();
@@ -17,6 +18,7 @@ dotenv.config();
 // API Endpoints
 
 app.use("/api/v1/assignment", assignmentRoutes);
+app.use("/api/v1/university", universityRouter)
 
 const port = process.env.PORT || 9000;
 
