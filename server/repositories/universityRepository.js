@@ -1,9 +1,15 @@
 import { PrismaClient } from "@prisma/client";
-const prisma = new PrismaClient()
+const prisma = new PrismaClient();
 
 const getAllUnivesities = async () => {
-    return await prisma.universities.findMany();
-}
+  return await prisma.universities.findMany();
+};
 
-const universityRepository = { getAllUnivesities }
-export default universityRepository
+const createUniversity = async (uniName, uniLocation, logo, rankNum) => {
+  return await prisma.universities.create({
+    data: { uniName, uniLocation, logo, rankNum },
+  });
+};
+
+const universityRepository = { getAllUnivesities, createUniversity };
+export default universityRepository;
