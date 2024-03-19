@@ -13,7 +13,7 @@ const getAllUnivesities = async (req, res) => {
     res.status(200).json({ response });
   } catch (error) {
     console.error(error);
-    res.stautus(500).json({ error: "Internal server " });
+    res.stautus(500).json({ error: "Internal server error" });
   }
 };
 
