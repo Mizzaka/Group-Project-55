@@ -11,8 +11,8 @@ const getAllAssignments = async (req, res) => {
 };
 
 const createAssignment = async (req, res) => {
+  const { assignment_title, assignment_details } = req.body;
   try {
-    const { assignment_title, assignment_details } = req.body;
     const response = await assignmentRepository.createAssignment(
       assignment_title,
       assignment_details

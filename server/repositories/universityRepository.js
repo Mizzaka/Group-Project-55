@@ -11,9 +11,13 @@ const createUniversity = async (uniName, uniLocation, logo, rankNum) => {
   });
 };
 
-const getSpecificUniversity = async () => {
-    
-}
+const getSpecificUniversity = async (id) => {
+  return await prisma.universities.findUnique({ where: { id: id } });
+};
 
-const universityRepository = { getAllUnivesities, createUniversity };
+const universityRepository = {
+  getAllUnivesities,
+  createUniversity,
+  getSpecificUniversity,
+};
 export default universityRepository;
