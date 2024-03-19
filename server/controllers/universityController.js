@@ -1,4 +1,3 @@
-import { createClient } from "@supabase/supabase-js";
 import universityRepository from "../repositories/universityRepository.js";
 
 const json = (param) => {
@@ -7,12 +6,6 @@ const json = (param) => {
   );
 };
 export default json;
-
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
-
-// Create Supabase client
-const supabase = createClient(supabaseUrl, supabaseKey)
 
 const getAllUnivesities = async (req, res) => {
   try {
