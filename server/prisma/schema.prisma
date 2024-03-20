@@ -27,6 +27,7 @@ model AcedemicsField {
   id        Int         @id @default(autoincrement())
   field     String
   academics Academics[]
+  post      Post[]
 }
 
 model AcademicQualificationType {
@@ -49,10 +50,12 @@ model Academics {
 }
 
 model Post {
-  id          Int      @id @default(autoincrement())
-  title       String   @unique
-  description String
-  tags        String?
-  created_at  DateTime @default(now())
-  isQuestion  Boolean
+  id              Int            @id @default(autoincrement())
+  title           String         @unique
+  description     String
+  tags            String?
+  created_at      DateTime       @default(now())
+  isQuestion      Boolean?        @default(false)
+  relatedAcaField AcedemicsField @relation(fields: [acaFId], references: [id])
+  acaFId          Int
 }

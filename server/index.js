@@ -6,6 +6,7 @@ import cors from "cors";
 // Custom Routing
 import { universityRouter } from "./routes/universityRoutes.js";
 import { academicsRouter } from "./routes/academicsRoutes.js";
+import { postRouter } from "./routes/postRoutes.js";
 
 // Instances
 const app = express();
@@ -18,6 +19,7 @@ dotenv.config();
 // API Endpoints
 app.use("/api/v1/university", universityRouter)
 app.use("/api/v1/academics", academicsRouter)
+app.use("/api/v1/posts", postRouter)
 
 const port = process.env.PORT || 9000;
 
