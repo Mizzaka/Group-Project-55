@@ -9,6 +9,7 @@ import { academicsRouter } from "./routes/academicsRoutes.js";
 import { postRouter } from "./routes/postRoutes.js";
 import { academicsTypeRouter } from "./routes/academicsTypeRoutes.js";
 import { academicsFieldRouter } from "./routes/academicsFieldRoutes.js";
+import { jobRouter } from "./routes/jobRoutes.js";
 
 // Instances
 const app = express();
@@ -23,7 +24,8 @@ app.use("/api/v1/university", universityRouter)
 app.use("/api/v1/academics", academicsRouter)
 app.use("/api/v1/posts", postRouter)
 app.use("/api/v1/academicTypes", academicsTypeRouter)
-app.use("/api/v1/academicsFieldRouter", academicsFieldRouter)
+app.use("/api/v1/academicsField", academicsFieldRouter)
+app.use("/api/v1/job", jobRouter)
 
 const port = process.env.PORT || 9000;
 
