@@ -28,12 +28,14 @@ model AcedemicsField {
   field     String
   academics Academics[]
   post      Post[]
+  job       Job[]
 }
 
 model AcademicQualificationType {
   id        Int         @id @default(autoincrement())
   type      String
   academics Academics[]
+  job       Job[]
 }
 
 model Academics {
@@ -55,7 +57,35 @@ model Post {
   description     String
   tags            String?
   created_at      DateTime       @default(now())
-  isQuestion      Boolean?        @default(false)
+  isQuestion      Boolean?       @default(false)
   relatedAcaField AcedemicsField @relation(fields: [acaFId], references: [id])
   acaFId          Int
+}
+
+model JobLevel {
+  id    Int    @id @default(autoincrement())
+  level String
+  job   Job[]
+}
+
+model JobType {
+  id   Int    @id @default(autoincrement())
+  type String
+  job  Job[]
+}
+
+model Job {
+  id                        Int                       @id @default(autoincrement())
+  jobTitle                  String
+  academicQualificationType AcademicQualificationType @relation(fields: [acaId], references: [id])
+  acaId                     Int
+  academicField             AcedemicsField            @relation(fields: [acaFId], references: [id])
+  acaFId                    Int
+  jobLevel                  JobLevel                  @relation(fields: [jobLId], references: [id])
+  jobLId                    Int
+  jobType                   JobType                   @relation(fields: [jobTypeId], references: [id])
+  jobTypeId                 Int
+  jobLocation               String
+  jobDescription            String
+  companyLogo               String
 }
