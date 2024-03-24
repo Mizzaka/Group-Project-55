@@ -2,7 +2,14 @@ import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
 const getAllJobs = () => {
-  return prisma.job.findMany();
+  return prisma.job.findMany({
+    include: {
+      academicQualificationType: true,
+      academicField: true,
+      jobLevel: true,
+      jobType: true,
+    },
+  });
 };
 
 const createJobs = async (
