@@ -105,7 +105,7 @@ const CreateBlog = () => {
           </div>
 
           <div>
-            <Button type="submit">Create Post</Button>
+            <Button colorScheme="green" variant="outline" type="submit">Create Post</Button>
           </div>
         </FormControl>
       </form>
