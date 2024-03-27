@@ -1,4 +1,5 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
+import axios from "axios";
 import {
   Table,
   Thead,
@@ -12,41 +13,41 @@ import {
 } from "@chakra-ui/react";
 
 const BlogTable = () => {
+  const [postData, setPostData] = useState([]);
+
+  useEffect(() => {
+    const fetchPostData = async () => {
+      try {
+        const response = await axios.get("http://localhost:5000/api/v1/posts/");
+        setPostData(response.data.response.reverse());
+      } catch (error) {
+        console.error(error);
+        toast.error("Failed to load posts");
+      }
+    };
+    fetchPostData();
+  }, []);
+
   return (
     <>
       <TableContainer>
         <Table size="sm" variant="striped">
           <Thead>
             <Tr>
-              <Th>To convert</Th>
-              <Th>into</Th>
-              <Th isNumeric>multiply by</Th>
+              <Th>Title</Th>
+              <Th>Created-Date</Th>
+              <Th>Related Academic Field</Th>
             </Tr>
           </Thead>
           <Tbody>
-            <Tr>
-              <Td>inches</Td>
-              <Td>millimetres (mm)</Td>
-              <Td isNumeric>25.4</Td>
-            </Tr>
-            <Tr>
-              <Td>feet</Td>
-              <Td>centimetres (cm)</Td>
-              <Td isNumeric>30.48</Td>
-            </Tr>
-            <Tr>
-              <Td>yards</Td>
-              <Td>metres (m)</Td>
-              <Td isNumeric>0.91444</Td>
-            </Tr>
+            {postData.map((post) => (
+              <Tr key={post.id}>
+                <Td>{post.title}</Td>
+                <Td>{post.created_at}</Td>
+                <Td>{post.relatedAcaField.field}</Td>
+              </Tr>
+            ))}
           </Tbody>
-          <Tfoot>
-            <Tr>
-              <Th>To convert</Th>
-              <Th>into</Th>
-              <Th isNumeric>multiply by</Th>
-            </Tr>
-          </Tfoot>
         </Table>
       </TableContainer>
     </>
