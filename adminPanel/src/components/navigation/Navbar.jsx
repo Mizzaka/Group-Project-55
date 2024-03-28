@@ -22,10 +22,10 @@ const Navbar = () => {
             </li>
             <li className="block p-1 font-sans text-sm antialiased font-medium leading-normal text-blue-gray-900">
               <a
-                href="#"
+                href="/jobs"
                 className="flex items-center transition-colors hover:text-blue-500"
               >
-                Account
+                Jobs
               </a>
             </li>
             <li className="block p-1 font-sans text-sm antialiased font-medium leading-normal text-blue-gray-900">
