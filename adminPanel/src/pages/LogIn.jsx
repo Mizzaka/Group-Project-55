@@ -67,12 +67,13 @@ const LogIn = () => {
                     Forgot password?
                   </a>
                 </div>
-                <button
-                  type=""
-                  class="w-full text-white bg-gray-600 hover:bg-primary-700 focus:ring-4 focus:outline-none focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800"
-                >
-                  <a href="/">Sign in</a>
-                </button>
+                <div className="text-center">
+                  <a href="/" type="button">
+ 
+                      Sign-In
+    
+                  </a>
+                </div>
                 <p class="text-sm font-light text-gray-500 dark:text-gray-400">
                   Don’t have an account yet?{" "}
                   <a
