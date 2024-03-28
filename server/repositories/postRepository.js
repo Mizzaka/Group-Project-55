@@ -22,9 +22,30 @@ const getSpecificPost = async (id) => {
   return await prisma.post.findUnique({ where: { id: id } });
 };
 
+const updateSpecificPost = async (
+  id,
+  title,
+  description,
+  tags,
+  created_at,
+  isQuestion,
+  acaFId
+) => {
+  return await prisma.post.update({
+    where: { id: id },
+    data: { title, description, tags, created_at, isQuestion, acaFId },
+  });
+};
+
 const deleteSpecificPost = async (id) => {
   return await prisma.post.delete({ where: { id: id } });
 };
 
-const postRepositoy = { getAllPosts, createPosts, getSpecificPost, deleteSpecificPost };
+const postRepositoy = {
+  getAllPosts,
+  createPosts,
+  getSpecificPost,
+  updateSpecificPost,
+  deleteSpecificPost,
+};
 export default postRepositoy;
