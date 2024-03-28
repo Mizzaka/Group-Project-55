@@ -32,9 +32,11 @@ const BlogTable = () => {
 
   const handleDelete = async (id) => {
     try {
-      return await axios.delete(
+      const response = await axios.delete(
         `http://localhost:5000/api/v1/posts/${id}`
-      ).toast.info("Post deleted successfully!");    
+      );
+      toast.info("Post deleted successfully!");
+      return response;
     } catch (error) {
       console.error(error);
       toast.error("Unable to delete post at the moment");
