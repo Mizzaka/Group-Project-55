@@ -32,16 +32,16 @@ const BlogTable = () => {
 
   const handleDelete = async (id) => {
     try {
-      const response = await axios.delete(
-        `http://localhost:5000/api/v1/posts/${id}`
-      );
+      await axios.delete(`http://localhost:5000/api/v1/posts/${id}`);
+      // Remove the deleted post from the state
+      setPostData(postData.filter(post => post.id !== id));
       toast.info("Post deleted successfully!");
-      return response;
     } catch (error) {
       console.error(error);
       toast.error("Unable to delete post at the moment");
     }
   };
+  
 
   return (
     <>
