@@ -48,9 +48,12 @@ const JobsTable = () => {
       <Table size="sm" variant="striped">
         <Thead>
           <Tr>
-            <Th>Title</Th>
-            <Th>Created-Date</Th>
+            <Th>Job Title</Th>
+            <Th>Location</Th>
+            <Th>Experience Level</Th>
+            <Th>Job Type</Th>
             <Th>Related Academic Field</Th>
+            <Th>Minimum Academic Qualification</Th>
             <Th></Th>
             <Th></Th>
           </Tr>
@@ -59,13 +62,16 @@ const JobsTable = () => {
           {jobData.map((job) => (
             <Tr key={job.id}>
               <Td>{job.jobTitle}</Td>
-              <Td>{job.created_at.slice(0, 10)}</Td>
-              <Td>{job.relatedAcaField.field}</Td>
+              <Td>{job.jobLocation}</Td>
+              <Td>{job.jobLevel.level}</Td>
+              <Td>{job.jobType.type}</Td>
+              <Td>{job.academicField.field}</Td>
+              <Td>{job.academicQualificationType.type}</Td>
               <Td>
                 <Button colorScheme="blue">Update</Button>
               </Td>
               <Td>
-                <Button colorScheme="red" onClick={() => handleDelete(post.id)}>
+                <Button colorScheme="red" onClick={() => handleDelete(job.id)}>
                   Delete
                 </Button>
               </Td>
