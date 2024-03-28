@@ -50,4 +50,19 @@ const getSpecificPosts = async (req, res) => {
   }
 };
 
-export { getAllPosts, createPosts, getSpecificPosts };
+const deleteSpecificPost = async (req, res) => {
+  const id = Number(req.params.id);
+  try {
+    const response = await postRepository.deleteSpecificPost(id);
+    if (!response) {
+      res.status(404).json({ Error: "Not found" });
+    } else {
+      res.status(200).type("json").send(json(response));
+    }
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Internal sever error" });
+  }
+};
+
+export { getAllPosts, createPosts, getSpecificPosts, deleteSpecificPost };

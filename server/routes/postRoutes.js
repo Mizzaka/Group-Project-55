@@ -5,9 +5,10 @@ import {
   getAllPosts,
   createPosts,
   getSpecificPosts,
+  deleteSpecificPost
 } from "../controllers/postController.js";
 
 postRouter.route("/").get(getAllPosts).post(createPosts);
-postRouter.route("/:id").get(getSpecificPosts);
+postRouter.route("/:id").get(getSpecificPosts).delete(deleteSpecificPost);
 
 export { postRouter };

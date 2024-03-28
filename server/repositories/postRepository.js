@@ -26,5 +26,5 @@ const deleteSpecificPost = async (id) => {
   return await prisma.post.delete({ where: { id: id } });
 };
 
-const postRepositoy = { getAllPosts, createPosts, getSpecificPost };
+const postRepositoy = { getAllPosts, createPosts, getSpecificPost, deleteSpecificPost };
 export default postRepositoy;
