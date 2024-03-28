@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from "react";
+import { Button, ButtonGroup } from '@chakra-ui/react'
 import axios from "axios";
 import {
   Table,
@@ -28,6 +29,14 @@ const BlogTable = () => {
     fetchPostData();
   }, []);
 
+  const handleDelete = async (id) => {
+    try {
+      const response = await axios.delete("http://localhost:5000/api/v1/posts/")
+    } catch (error) {
+      
+    }
+  }
+
   return (
     <>
       <TableContainer>
@@ -37,14 +46,18 @@ const BlogTable = () => {
               <Th>Title</Th>
               <Th>Created-Date</Th>
               <Th>Related Academic Field</Th>
+              <Th></Th>
+              <Th></Th>
             </Tr>
           </Thead>
           <Tbody>
             {postData.map((post) => (
               <Tr key={post.id}>
                 <Td>{post.title}</Td>
-                <Td>{post.created_at}</Td>
+                <Td>{post.created_at.slice(1, 10)}</Td>
                 <Td>{post.relatedAcaField.field}</Td>
+                <Td><Button colorScheme="blue">Update</Button></Td>
+                <Td><Button colorScheme="red">Delete</Button></Td>
               </Tr>
             ))}
           </Tbody>
