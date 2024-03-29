@@ -89,3 +89,9 @@ model Job {
   jobDescription            String
   companyLogo               String
 }
+
+model User {
+  id       Int    @id @default(autoincrement())
+  userName String @unique
+  password String @unique
+}
