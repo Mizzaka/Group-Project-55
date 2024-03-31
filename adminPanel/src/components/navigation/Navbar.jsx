@@ -8,7 +8,7 @@ const Navbar = () => {
           href="/"
           className="mr-4 block cursor-pointer py-1.5 font-sans text-base font-semibold leading-relaxed tracking-normal text-inherit antialiased"
         >
-          Dashboard
+          Smart Pitch
         </a>
         <div className="hidden lg:block">
           <ul className="flex flex-col gap-2 my-2 lg:mb-0 lg:mt-0 lg:flex-row lg:items-center lg:gap-6">
@@ -17,7 +17,7 @@ const Navbar = () => {
                 href="/blog"
                 className="flex items-center transition-colors hover:text-blue-500"
               >
-                Blog
+                Contact Us
               </a>
             </li>
             <li className="block p-1 font-sans text-sm antialiased font-medium leading-normal text-blue-gray-900">
@@ -25,7 +25,7 @@ const Navbar = () => {
                 href="/jobs"
                 className="flex items-center transition-colors hover:text-blue-500"
               >
-                Jobs
+                Portfolio
               </a>
             </li>
             <li className="block p-1 font-sans text-sm antialiased font-medium leading-normal text-blue-gray-900">

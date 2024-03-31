@@ -1,0 +1,12 @@
+    {/* <div>
+        {feedData.map((feed) => (
+          <ul key={feed.entry_id}>
+            <li>Humidity: {feed.field1}</li>
+            <li>Temperature: {feed.field2}</li>
+            <li>Soil Moisture: {feed.field3}</li>
+            <li>Rain Value: {feed.field4}</li>
+            <li>Water Level: {feed.field5}</li>
+            <br></br>
+          </ul>
+        ))}
+      </div> */}
