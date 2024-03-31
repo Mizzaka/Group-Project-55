@@ -13,6 +13,8 @@ import {
   Tooltip,
   PieChart,
   Pie,
+  AreaChart,
+  Area,
 } from "recharts";
 import { Button, ButtonGroup } from "@chakra-ui/react";
 import { toast } from "sonner";
@@ -60,23 +62,23 @@ const DashboardPage = () => {
   ];
 
   const data01 = [
-    { name: 'Group A', value: 400 },
-    { name: 'Group B', value: 300 },
-    { name: 'Group C', value: 300 },
-    { name: 'Group D', value: 200 },
+    { name: "Group A", value: 400 },
+    { name: "Group B", value: 300 },
+    { name: "Group C", value: 300 },
+    { name: "Group D", value: 200 },
   ];
   const data02 = [
-    { name: 'A1', value: 100 },
-    { name: 'A2', value: 300 },
-    { name: 'B1', value: 100 },
-    { name: 'B2', value: 80 },
-    { name: 'B3', value: 40 },
-    { name: 'B4', value: 30 },
-    { name: 'B5', value: 50 },
-    { name: 'C1', value: 100 },
-    { name: 'C2', value: 200 },
-    { name: 'D1', value: 150 },
-    { name: 'D2', value: 50 },
+    { name: "A1", value: 100 },
+    { name: "A2", value: 300 },
+    { name: "B1", value: 100 },
+    { name: "B2", value: 80 },
+    { name: "B3", value: 40 },
+    { name: "B4", value: 30 },
+    { name: "B5", value: 50 },
+    { name: "C1", value: 100 },
+    { name: "C2", value: 200 },
+    { name: "D1", value: 150 },
+    { name: "D2", value: 50 },
   ];
 
   const chartFeedData = feedData;
@@ -89,14 +91,18 @@ const DashboardPage = () => {
             <h1 className="text-2xl font-bold">Humidity</h1>
           </CardHeader>
           <CardBody>
-            <BarChart width={750} height={300} data={chartFeedData}>
+            <LineChart width={750} height={300} data={chartFeedData}>
               {console.log(chartFeedData)}
-              <Bar type="monotone" dataKey="field1" fill="#52B1D2" stroke="#52B1D2" />
-        
+              <Line
+                type="monotone"
+                dataKey="field1"
+                fill="#52B1D2"
+                stroke="#52B1D2"
+              />
               <XAxis dataKey="entry_id" />
               <YAxis />
               <Tooltip />
-            </BarChart>
+            </LineChart>
           </CardBody>
         </Card>
       </Box>
@@ -108,8 +114,13 @@ const DashboardPage = () => {
           <CardBody>
             <BarChart width={750} height={300} data={chartFeedData}>
               {console.log(chartFeedData)}
-              <Bar type="monotone" dataKey="field2" fill="#FF0000" stroke="#FF0000" />
-           
+              <Bar
+                type="monotone"
+                dataKey="field2"
+                fill="#FF0000"
+                stroke="#FF0000"
+              />
+
               <XAxis dataKey="entry_id" />
               <YAxis />
               <Tooltip />
@@ -125,8 +136,12 @@ const DashboardPage = () => {
           <CardBody>
             <BarChart width={750} height={300} data={chartFeedData}>
               {console.log(chartFeedData)}
-              <Bar type="monotone" dataKey="field3" fill="#964B00" stroke="#964B00" />
-          
+              <Bar
+                type="monotone"
+                dataKey="field3"
+                fill="#964B00"
+                stroke="#964B00"
+              />
               <XAxis dataKey="entry_id" />
               <YAxis />
               <Tooltip />
@@ -142,8 +157,13 @@ const DashboardPage = () => {
           <CardBody>
             <BarChart width={750} height={300} data={chartFeedData}>
               {console.log(chartFeedData)}
-              <Bar type="monotone" dataKey="field4" stroke="#ADD8E6" fill="#ADD8E6" />
-           
+              <Bar
+                type="monotone"
+                dataKey="field4"
+                stroke="#ADD8E6"
+                fill="#ADD8E6"
+              />
+
               <XAxis dataKey="entry_id" />
               <YAxis />
               <Tooltip />
@@ -160,7 +180,7 @@ const DashboardPage = () => {
             <BarChart width={1600} height={300} data={chartFeedData}>
               {console.log(chartFeedData)}
               <Bar type="monotone" dataKey="field5" stroke="#8884d8" />
-            
+
               <XAxis dataKey="entry_id" />
               <YAxis />
               <Tooltip />
